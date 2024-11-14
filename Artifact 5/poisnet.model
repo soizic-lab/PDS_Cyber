@@ -1,0 +1,13 @@
+from mergexp import *
+
+# Create a network topology object. This network will automatically
+# add IP addresses to all node interfaces and configure static routes
+# between all experiment nodes. 
+net = Network('poisnet', addressing==ipv4, routing==static)
+
+# Creating the node.
+n=net.node("nodepoisnet",proc.cores>=2, image=="2004", metal==True, memory.capacity>=gb(128))
+
+# Making the experiment runnable.
+experiment(net)
+

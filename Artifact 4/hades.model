@@ -1,0 +1,16 @@
+from mergexp import *
+
+# Create a network topology object. This network will automatically
+# add IP addresses to all node interfaces and configure static routes
+# between all experiment nodes. 
+net = Network('hades', addressing==ipv4, routing==static)
+
+# Creating the node.
+n=net.node("nodehades",proc.cores>=18, metal==True, image=="2004", memory.capacity>=gb(64))
+
+# Making the experiment runnable.
+experiment(net)
+
+
+
+
